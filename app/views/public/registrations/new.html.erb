@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+
+      <h2>会員登録フォーム</h2>
+
+      <p>※アドレス等お間違いないようにお願いいたします。</p>
+
+      <%= form_with model: @customer, url: new_customer_registration do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
+
+        <table>
+          <thead>
+            <tr>
+              <th class="pr-3 pb-3">氏名</th>
+              <td class="pb-3">
+                (姓)&emsp;<%= f.text_field :last_name %>(名)
+              </td>
+            </tr>
+
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+
+        <tr>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </tr>
+
+        <div class="actions">
+          <%= f.submit "この内容で登録する" %>
+
+          </thead>
+        </table>
+      <% end %>
+
+      <%= render "public/shared/links" %>
+
+    </div>
+  </div>
+</div>
