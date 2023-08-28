@@ -6,7 +6,7 @@
 
       <p>※アドレス等お間違いないようにお願いいたします。</p>
 
-      <%= form_with model: @customer, url: new_customer_registration do |f| %>
+     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user' do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
 
         <table>
@@ -36,6 +36,7 @@
 
         <div class="actions">
           <%= f.submit "この内容で登録する" %>
+        </div>
 
           </thead>
         </table>
