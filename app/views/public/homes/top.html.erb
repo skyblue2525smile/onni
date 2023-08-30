@@ -1,0 +1,35 @@
+<div class = "container">
+  <div class="row">
+
+    <span>
+      ONIIの世界へようこそ！</br>
+      当サイトは、ガラスのハンドメイドアクセサリー販売専用のＥＣサイトです。</br>
+      どなたでもお気軽にご覧くださいませ。</br>
+      ※商品のご購入には会員登録が必要です。
+    </span>
+
+  </div>
+
+  <div class="row">
+    <h4>★新着商品情報</h4>
+  </div>
+
+  <div class="row">
+  <% @items.each do |item| %>
+
+    <div class="col-md-3">
+      <%= link_to item_path(item.id) do %>
+        <%= image_tag item.get_profile_image(150,150) %>
+      <% end %>
+
+      <p><%= link_to item.name, item_path(item.id) %></p>
+      <p><%= "￥" + item.with_tax_price %></p>
+    </div>
+  <% end %>
+  </div>
+
+  <div class="row d-block text-right">
+    <%= link_to "全ての商品を見る>", items_path %>
+  </div>
+
+</div>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   scope module: :public do
     #「scope module」を使用することで、呼び出すコントローラのアクションのみグループ化
 
-    root to: "/" => 'homes#top'
+    root to: 'homes#top'
     get "/homes/about" => "homes#about", as: "about"
     get "/homes/introduction" => "homes#introduction", as: "introduction"
 
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     patch "/customers/information" => "customers#update"
     get "/customers/confirm" => "customers#confirm"
     patch "/customers/:id/withdrawal" => "customers#withdrawal"
-    end
+
   end
 
   # 顧客用
@@ -44,11 +44,13 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    root to: "/admin" => 'homes#top'
+    root to: 'homes#top'
     resources :items
-    resources :customers, onky: [:index, :show, :edit, :update]
-    resources :orders, only: [:update]
-    resources :order_details, only: [:update]
+    resources :customers, only: [:index, :show, :edit, :update] do
+      resources :orders, only: [:index, :show, :update]
+      resources :order_details, only: [:update]
+    end
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
