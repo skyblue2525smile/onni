@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class = "p-3 text-black">
+          <span class = "bg-light pr-3 pl-3 h5">ショッピングカート</span>
+      </div>
+    </div>
+
+    <div class="col-md-2 pt-3">
+      <%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, class: "btn btn-danger btn-sm" %>
+    </div>
+  </div>
+
+  <table class="table table-bordered m-2">
+    <thead class="thead-light">
+      <tr>
+        <th class="p-2">
+          商品名
+        </th>
+        <th class="p-2">
+          単価(税込)
+        </th>
+        <th class="p-2">
+          数量
+        </th>
+        <th class="p-2">
+          小計
+        </th>
+        <th colspan="5"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @cart_items.each do |cart_item| %>
+        <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch do |f| %>
+          <%= f.hidden_field :item_id, :value => cart_item.item.id %>
+
+          <tr>
+
+            <td class="pt-3 pb-3 pr-5">
+              <%= cart_item.item.name %>
+            </td>
+            <td class="pt-3 pb-3">
+              <%= cart_item.item.with_tax_price %>
+            </td>
+            <td>
+              <%= f.select :amount, *[1..10] %>
+              <%= f.submit "変更", class: "btn btn-success" %>
+            </td>
+            <td class="p-3">
+              <%= cart_item.subtotal %>
+              </td>
+            <td class="pt-3 pb-3">
+              <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %>
+            </td>
+
+            <% @sum +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
+
+          </tr>
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-md-8">
+     <div class="m-2"><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></div>
+    </div>
+
+    <div class="col-md-4">
+        <table class="table table-bordered m-2">
+            <thead class="thead-light">
+              <tr>
+                <th>
+                  合計金額
+                </th>
+                <th class="bg-white text-dark">
+                  <%= @sum %>
+                </th>
+              </tr>
+            </thead>
+        </table>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center m-3">
+    <% if @cart_items == nil %>
+      <% render cart_items_path %>
+    <!--カート内が空の場合、情報入力画面に進めないようにしています-->
+    <% else %>
+      <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success btn-lg" %>
+    <% end %>
+
+  </div>
+
+</div>
