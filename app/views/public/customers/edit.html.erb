@@ -1,0 +1,47 @@
+<div class="container">
+  <div class = "p-3 text-black">
+    <span class = "bg-light pr-3 pl-3 h5">会員情報編集</span>
+  </div>
+
+    <%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
+    <table>
+      <thead>
+         <tr>
+           <th class ="pr-3 pb-3">氏名</th>
+           <td class="pb-3"><%= f.text_field :last_name %> &emsp; <%= f.text_field :first_name %></td>
+         </tr>
+         <tr>
+           <th class ="pr-3 pb-3">フリガナ</th>
+           <td class="pb-3"><%= f.text_field :last_name_kana %> &emsp; <%= f.text_field :first_name_kana %></td>
+         </tr>
+         <tr>
+           <th class ="pr-3 pb-3">郵便番号(ハイフンなし)</th>
+           <td class="pb-3"><%= f.text_field :postal_code %></td>
+         </tr>
+         <tr>
+           <th class ="pr-3 pb-3">住所</th>
+           <td class="pb-3"><%= f.text_field :address, size:60 %></td>
+         </tr>
+         <tr>
+           <th class ="pr-3 pb-3">電話番号</th>
+           <td class="pb-3"><%= f.text_field :telephone_number %></td>
+         </tr>
+         <tr>
+           <th class ="pr-3 pb-3">メールアドレス</th>
+           <td class="pb-3"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+         </tr>
+         <tr>
+            <th></th>
+            <td class="pr-5 pl-5">
+               <div class="row d-flex justify-content-center">
+                  <span class="pr-5"><%= f.submit "変更内容を保存", class: "btn btn btn-success" %></span>
+                  <span class="pr-5"><%= link_to "退会する", confirm_customers_path, class: "btn btn btn-danger" %></span>
+               </div>
+            </td>
+          </tr>
+      </thead>
+    </table>
+
+   <% end %>
+
+ </div>
