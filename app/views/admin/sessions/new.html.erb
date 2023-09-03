@@ -1,7 +1,8 @@
 <div class="container">
   <h2>管理者ログインページ</h2>
 
-  <%= form_with model: @user, url: user_session_path do |f| %>
+  <%= form_with(model: resource, as: resource_name, url: session_path(resource_name), local: true) do |f| %>
+  <!--()を付けている理由：追記した他のコードの影響を受けて、エラーが発生するリスクを回避するため-->
 
     <div class="field d-flex justify-content-center">
       <span class="p-1">

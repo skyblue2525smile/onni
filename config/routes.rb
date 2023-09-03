@@ -21,25 +21,24 @@ Rails.application.routes.draw do
 
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
 
-    get "/customers/my_page" => "customers#show"
-    get "/customers/edit/information" => "customers#edit"
+    get "/customer/my_page" => "customers#show"
+    get "/customer/edit/information" => "customers#edit"
     # 「customers/edit」にするとdeviseのルーティングと被るため、「information」を付け加えている
-    patch "/customers/information" => "customers#update"
-    get "/customers/confirm" => "customers#confirm"
-    patch "/customers/:id/withdrawal" => "customers#withdrawal"
-
+    patch "/customer/information" => "customers#update"
+    get "/customer/confirm" => "customers#confirm"
+    patch "/customer/:id/withdrawal" => "customers#withdrawal"
   end
 
   # 顧客用
   # URL /customers/sign_in ...
-  devise_for :customers, skip: [:passwords], controllers: {
+  devise_for :customers, path: :customer, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
 
   # 管理者用
   # URL /admin/sign_in ...
-  devise_for :admins, skip: [:registrations, :passwords] ,controllers: {
+  devise_for :admins, path: :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
 
