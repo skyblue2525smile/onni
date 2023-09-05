@@ -1,5 +1,11 @@
 <div class="container">
-  <h2>ログイン</h2>
+  <h4>ログイン</h4>
+
+  <div class = "pt-3 pl-5 text-black">
+    <span class = "bg-light pr-3 pl-3 h6">
+      *商品のご購入、マイページのご利用にはログインが必要です*
+    </span>
+  </div>
 
   <%= form_with(model: resource, as: resource_name, url: session_path(resource_name), local: true) do |f| %>
   <!--()を付けている理由：追記した他のコードの影響を受けて、エラーが発生するリスクを回避するため-->

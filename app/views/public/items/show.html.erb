@@ -1,0 +1,27 @@
+<div class = "container">
+  <div class = "row">
+
+
+    <div class = "col-md-4 mt-5">
+        <%= image_tag @item.get_image(300, 300) %>
+    </div>
+
+    <div class = "col-md-5 mt-5">
+
+        <p><b><%= @item.name %></b></p>
+
+        <p><%= @item.introduction %></p>
+
+        <p><%= "￥" + (@item.with_tax_price).to_s + "（税込）" %></p>
+
+        <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.hidden_field :customer_id, :value => current_customer.id %>
+          <!--誰がどの商品をカートに入れたかをhidden_fieldで送る-->
+          <p><%= f.select :amount, *[1..10], {prompt: "選択して下さい", :class => "form-control-sm"} %></p>
+          <p><%= f.submit "カートに入れる", class: "btn btn-success" %></p>
+        <% end %>
+    </div>
+
+  </div>
+</div>
