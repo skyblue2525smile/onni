@@ -9,7 +9,7 @@
 
     <div class="col-md-6">
       <div class= "text-right m-5">
-         <%= link_to "商品を追加する", new_admin_item_path, class: "btn btn-default" %>
+         <%= link_to "商品を追加する", new_admin_item_path, class: "btn btn-success" %>
       </div>
     </div>
   </div>
@@ -18,12 +18,20 @@
   <div class="row">
 
       <table width="100%">
-        <thead class="bg-light">
+        <thead>
           <tr>
-            <th class="pt-2 pr-4 pl-4 pb-2">商品ID</th>
-            <th class="pt-2 pr-4 pl-4 pb-2">商品名</th>
-            <th class="pt-2 pr-4 pl-4 pb-2">税抜価格</th>
-            <th class="pt-2 pr-4 pl-4 pb-2">ステータス</th>
+            <th class="pt-2 pr-4 pl-4 pb-2" th bgcolor="lemonchiffon">
+              商品ID
+            </th>
+            <th class="pt-2 pr-4 pl-4 pb-2"th bgcolor="lemonchiffon">
+              商品名
+            </th>
+            <th class="pt-2 pr-4 pl-4 pb-2"th bgcolor="lemonchiffon">
+              税抜価格
+            </th>
+            <th class="pt-2 pr-4 pl-4 pb-2"th bgcolor="lemonchiffon">
+              ステータス
+            </th>
           </tr>
         </thead>
 
