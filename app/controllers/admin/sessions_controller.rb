@@ -6,8 +6,9 @@ class Admin::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   def new
     super
-    sign_out current_customer
+    sign_out current_customer if current_customer.present?
     #管理者としてログインする時は、ユーザーは一旦ログアウトする
+    #ログアウトさせる対象(current_customer)が存在しているときにこのメソッドを実行する
   end
 
   # POST /resource/sign_in

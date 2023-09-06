@@ -1,37 +1,38 @@
 <div class="container">
   <div class = "p-3 text-black">
-    <span class = "bg-light pr-3 pl-3 h5">マイページ</span>
+    <span class = "pr-3 pl-3 h5"><b>マイページ</b></span>
   </div>
 
-  <h5 style="display: inline-block"><b>登録情報</b></h5>　<%= link_to "内容を編集する", edit_customers_path, class: "m-2 btn btn-success mr-2 ml-2" %>
+  <h5 style="display: inline-block"><b>登録情報</b></h5>
+  <%= link_to "内容を編集する", customer_edit_information_path, class: "m-2 btn btn-success mr-2 ml-2" %>
 
 
   <div class="col-md-8">
   <table class="table table-bordered">
     <tbody>
-      <thead class="thead-light">
+      <thead>
       <tr>
-        <th>氏名</th>
+        <th bgcolor="lemonchiffon">氏名</th>
         <td><%= @customer.last_name + @customer.first_name %></td>
       </tr>
       <tr>
-        <th>カナ</th>
+        <th bgcolor="lemonchiffon">カナ</th>
         <td><%= @customer.last_name_kana + @customer.first_name_kana %></td>
       </tr>
       <tr>
-        <th>郵便番号</th>
+        <th bgcolor="lemonchiffon">郵便番号</th>
         <td><%= @customer.postal_code %></td>
       </tr>
       <tr>
-        <th>住所</th>
+        <th bgcolor="lemonchiffon">住所</th>
         <td><%= @customer.address %></td>
       </tr>
       <tr>
-        <th>電話番号</th>
+        <th bgcolor="lemonchiffon">電話番号</th>
         <td><%= @customer.telephone_number %></td>
       </tr>
       <tr>
-        <th>メールアドレス</th>
+        <th bgcolor="lemonchiffon">メールアドレス</th>
         <td><%= @customer.email %></td>
       </tr>
       </thead>
