@@ -1,6 +1,7 @@
 <div class = "container">
   <div class="row">
 
+    <span><%= image_tage 'shop_image.jpg', size: '200x200' %></span>
     <span>
       ONIIの世界へようこそ！</br>
       当サイトは、ガラスのハンドメイドアクセサリー販売専用のＥＣサイトです。</br>
@@ -19,11 +20,11 @@
 
     <div class="col-md-3">
       <%= link_to item_path(item.id) do %>
-        <%= image_tag item.get_profile_image(150,150) %>
+        <%= image_tag item.get_image(150,150) %>
       <% end %>
 
       <p><%= link_to item.name, item_path(item.id) %></p>
-      <p><%= "￥" + item.with_tax_price %></p>
+      <p><%= "￥" + (item.with_tax_price).to_s(:delimited) %></p>
     </div>
   <% end %>
   </div>

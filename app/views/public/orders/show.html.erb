@@ -9,14 +9,14 @@
         <tbody>
           <thead class="thead-light">
           <tr>
-            <th>注文日</th>
+            <th bgcolor="lemonchiffon">注文日</th>
             <td>
               <%= l @order.created_at %>
             </td>
           </tr>
 
           <tr>
-            <th class="p-3">配送先</th>
+            <th class="p-3" bgcolor="lemonchiffon">配送先</th>
             <td>
               〒<%= @order.post_code %></br>
               <%= @order.address %></br>
@@ -25,14 +25,14 @@
           </tr>
 
           <tr>
-            <th>支払い方法</th>
+            <th bgcolor="lemonchiffon">支払い方法</th>
             <td>
               <%= @order.method_of_payment_i18n %>
             </td>
           </tr>
 
           <tr>
-            <th>ステータス</th>
+            <th bgcolor="lemonchiffon">ステータス</th>
             <td><%= @order.order_status_i18n %></td>
           </tr>
           </thead>
@@ -46,15 +46,15 @@
         <tbody>
           <thead class="thead-light">
             <tr>
-              <th>商品合計</th>
+              <th bgcolor="lemonchiffon">商品合計</th>
               <td><%= @order.payment_amount.to_s(:delimited) %></td>
             </tr>
             <tr>
-              <th>配送料</th>
+              <th bgcolor="lemonchiffon">配送料</th>
               <td><%= @order.postage %></td>
             </tr>
             <tr>
-              <th><b>お支払金額</b></th>
+              <th bgcolor="lemonchiffon"><b>お支払金額</b></th>
               <td><%= (@order.payment_amount + @order.postage).to_s(:delimited) %></td>
             </tr>
           </thead>
@@ -68,10 +68,10 @@
       <table class="table table-bordered">
           <thead class="thead-light">
             <tr>
-              <th>商品</th>
-              <th>単価（税込）</th>
-              <th>注文数</th>
-              <th>小計</th>
+              <th bgcolor="lemonchiffon">商品</th>
+              <th bgcolor="lemonchiffon">単価（税込）</th>
+              <th bgcolor="lemonchiffon">注文数</th>
+              <th bgcolor="lemonchiffon">小計</th>
             </tr>
           </thead>
 

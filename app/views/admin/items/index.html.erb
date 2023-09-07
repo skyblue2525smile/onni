@@ -20,16 +20,16 @@
       <table width="100%">
         <thead>
           <tr>
-            <th class="pt-2 pr-4 pl-4 pb-2" th bgcolor="lemonchiffon">
+            <th class="pt-2 pr-4 pl-4 pb-2" bgcolor="lemonchiffon">
               商品ID
             </th>
-            <th class="pt-2 pr-4 pl-4 pb-2"th bgcolor="lemonchiffon">
+            <th class="pt-2 pr-4 pl-4 pb-2" bgcolor="lemonchiffon">
               商品名
             </th>
-            <th class="pt-2 pr-4 pl-4 pb-2"th bgcolor="lemonchiffon">
+            <th class="pt-2 pr-4 pl-4 pb-2" bgcolor="lemonchiffon">
               税抜価格
             </th>
-            <th class="pt-2 pr-4 pl-4 pb-2"th bgcolor="lemonchiffon">
+            <th class="pt-2 pr-4 pl-4 pb-2" bgcolor="lemonchiffon">
               ステータス
             </th>
           </tr>
@@ -42,7 +42,6 @@
             <td class="p-3"><%= item.id %></td>
             <td class="p-3"><%= link_to item.name, admin_item_path(item.id) %></td>
             <td class="p-3"><%= item.price %></td>
-            <td class="p-3"><%= item.genre.name %></td>
             <td class="p-3">
               <% if item.is_active %>
                 <span class=text-success>販売中</span>

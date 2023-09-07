@@ -17,7 +17,7 @@
 
         <p><%= link_to item.name, item_path(item.id) %></p>
 
-        <p><%= "￥" + item.with_tax_price %></p>
+        <p><%= "￥" + (item.with_tax_price).to_s(:delimited) %></p>
 
       </div>
 
