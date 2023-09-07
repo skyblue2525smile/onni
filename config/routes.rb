@@ -49,7 +49,11 @@ Rails.application.routes.draw do
       resources :orders, only: [:index, :show, :update]
       resources :order_details, only: [:update]
     end
-
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  devise_scope :end_user do
+    post 'end_users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+
 end

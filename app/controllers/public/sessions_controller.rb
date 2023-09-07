@@ -12,6 +12,12 @@ class Public::SessionsController < Devise::SessionsController
    #ユーザーとしてログインする時は、管理者は一旦ログアウトする
    #ログアウトさせる対象(current_admin)が存在しているときにこのメソッドを実行する
 
+  def guest_sign_in
+    end_user = EndUser.guest
+    sign_in end_user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   # POST /resource/sign_in
   # def create
   #   super
