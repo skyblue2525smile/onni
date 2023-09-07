@@ -9,31 +9,42 @@
 
   <%= form_with(model: resource, as: resource_name, url: session_path(resource_name), local: true) do |f| %>
   <!--()を付けている理由：追記した他のコードの影響を受けて、エラーが発生するリスクを回避するため-->
-    <div class="field">
-      <%= f.label :email %><br />
+    <div class="field d-flex justify-content-center">
+      <span class="pt-3 pb-1 pr-3">
+      <%= f.label :メールアドレス %>
+      </span>
+      <span class="pt-3 pb-1 pl-1">
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </span>
     </div>
 
-    <div class="field">
-      <%= f.label :password %><br />
+    <div class="field d-flex justify-content-center">
+      <span class="pt-1 pb-1 pr-5">
+      <%= f.label :パスワード %>
+      </span>
+      <span class="pt-1 pb-1 pl-1">
       <%= f.password_field :password, autocomplete: "current-password" %>
+      </span>
     </div>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end %>
+    <!--<#% if devise_mapping.rememberable? %>-->
+    <!--  <div class="field">-->
+    <!--    <%#= f.check_box :remember_me %>-->
+    <!--    <%#= f.label :remember_me %>-->
+    <!--  </div>-->
+    <!--<#% end %>-->
 
-    <div class="actions">
-      <%= f.submit "Log in" %>
+    <div class="d-flex justify-content-center m-3">
+      <%= f.submit "ログイン", class:"btn btn-info" %>
     </div>
   <% end %>
 
-  <span><b>※会員登録をされていない方は
-    <%= link_to "こちら", new_customer_registration_path %>
-    から新規登録をお願いいたします。※</b></span>
-
+   <div class = "pt-3 pl-5 text-black">
+    <span class = "bg-light pr-3 pl-3 h6"><b>
+      ※会員登録をされていない方は
+      <%= link_to "こちら", new_customer_registration_path %>
+      から新規登録をお願いいたします。※
+    </b></span>
+  </div>
 
 </div>

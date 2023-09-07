@@ -5,7 +5,7 @@
 
   <p><b>支払方法</b></p>
 
-  <%= form_with model: @order, url: confirm_orders_path, method: :post do |f| %>
+  <%= form_with model: @order, url: order_confirm_path(@order.id), method: :post do |f| %>
   <div class="ml-3">
   <p><%= f.radio_button :method_of_payment, Order.method_of_payments.key(0) %>
   <%= f.label :method_of_payment_credit_card, Order.method_of_payments_i18n[:credit_card] %></p>

@@ -84,7 +84,7 @@ class Public::OrdersController < ApplicationController
 
   def check
     if current_customer.cart_items.count == 0
-      flash[:alert] = "カートに商品が入っていません。商品を入れてから実行してください。"
+      flash[:alert] = "現在、カートに商品が入っておりません。商品を入れてから再度実行してください。"
       redirect_to items_path
     end
   end
