@@ -19,13 +19,13 @@
               </tr>
               <tr>
                   <th class ="pr-3 pb-3">宛名</th>
-                  <td class="pb-3"><%= f.text_field :address_name, :placeholder => "山田花子" %></td>
+                  <td class="pb-3"><%= f.text_field :name, :placeholder => "山田花子" %></td>
               </tr>
           </thead>
       </div>
     </table>
 
-      <div class="col-md-2">
+      <div class ="text-center m-2">
           <%= f.submit "新規登録", class: "btn btn btn-success" %>
       </div>
 
@@ -55,7 +55,7 @@
             <%= address.address %>
           </td>
           <td class="p-3">
-            <%= address.address_name %>
+            <%= address.name %>
           </td>
           <td class="p-3">
             <%= link_to "編集する", edit_address_path(address.id), class: "btn btn-success" %>

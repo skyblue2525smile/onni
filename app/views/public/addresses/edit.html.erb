@@ -17,16 +17,16 @@
               </tr>
               <tr>
                   <th class ="pr-3 pb-3">宛名</th>
-                  <td class="pb-3"><%= f.text_field :address_name %></td>
+                  <td class="pb-3"><%= f.text_field :name %></td>
               </tr>
           </thead>
       </div>
-
-      <div class="col-md-2">
-          <%= f.submit "変更内容を保存", class: "btn btn btn-success" %>
-      </div>
-
     </table>
+
+    <div class ="text-center m-2">
+      <%= f.submit "変更内容を保存", class: "btn btn btn-success" %>
+    </div>
+
   <% end %>
   </div>
 </div>

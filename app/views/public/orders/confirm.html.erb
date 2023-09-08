@@ -8,10 +8,18 @@
       <table class ="table table-bordered">
         <thead class="thead-light">
           <tr>
-            <th class="p-2">商品名</th>
-            <th class="p-2">単価(税込)</th>
-            <th class="p-2">数量</th>
-            <th class="p-2">小計</th>
+            <th class="p-2" bgcolor="lemonchiffon">
+              商品名
+            </th>
+            <th class="p-2" bgcolor="lemonchiffon">
+              単価(税込)
+            </th>
+            <th class="p-2" bgcolor="lemonchiffon">
+              数量
+            </th>
+            <th class="p-2" bgcolor="lemonchiffon">
+              小計
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -36,7 +44,7 @@
           <thead class="thead-light">
 
             <tr>
-              <th>送料</th>
+              <th bgcolor="lemonchiffon">送料</th>
               <td>
                 <%= @order.postage.to_s(:delimited) %>
                 <%= f.hidden_field :postage, :value => @order.postage %>
@@ -44,14 +52,14 @@
             </tr>
 
             <tr>
-              <th>商品合計</th>
+              <th bgcolor="lemonchiffon">商品合計</th>
               <td>
                 <%= @order.payment_amount.to_s(:delimited) %>
               </td>
             </tr>
 
             <tr>
-              <th>お支払金額</th>
+              <th bgcolor="lemonchiffon">お支払金額</th>
               <td>
                 <%= (@order.payment_amount + @order.postage).to_s(:delimited) %>
                 <%= f.hidden_field :payment_amount, :value => @order.payment_amount + @order.postage %>
@@ -65,12 +73,16 @@
     <div class="row">
     <table>
       <tr>
-        <th class ="p-2"><b>お支払方法</b></th>
+        <th class ="p-2" bgcolor="lemonchiffon"><b>
+          お支払方法
+        </b></th>
         <td><%= @order.method_of_payment_i18n %></td>
       </tr>
 
       <tr>
-        <th class ="p-2"><b>お届け先</b></th>
+        <th class ="p-2" bgcolor="lemonchiffon"><b>
+          お届け先
+        </b></th>
         <td class ="pt-4">
             〒<%= @order.postal_code %>
             <%= @order.address %></br>
