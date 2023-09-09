@@ -1,1 +1,35 @@
 @use '~bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: 'sirokuma';
+  src: url('../fonts/001Shirokuma-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+/*javascript側の記述ファイルに寄せている*/
+
+footer{
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+    width:100%;
+}
+
+.font-size{
+  font-size:5px;
+}
+
+.thanks{
+  margin-top:200px;
+}
+
+body{
+  font-family:"sirokuma";
+}
+/*適用させたい箇所のタグに入れれば、その中の全てのフォントが変更される*/
+
+.lightgreenbotton{
+  background-color: lightgreen;
+  border: 1px solid black;
+  color: white;
+  /*background-colorで背景色を指定 borderで枠線関連を指定 colorで文字の色を指定*/
+}

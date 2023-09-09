@@ -10,6 +10,8 @@
     <script src="https://kit.fontawesome.com/6f9ca60165.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--linkタグはassets関連のファイルで、packタグがjavascript関連のファイルを呼び出している-->
+    <!--bootstrapはjavascript側のファイルに書く必要がある-->
 
   </head>
 
@@ -126,9 +128,6 @@
                 <% end %>
               </li>
 
-              <!--<li class="nav-item">-->
-              <!--  <%#= link_to 'ゲストログイン(閲覧用)', end_users_guest_sign_in_path, class: "nav-link", method: :post  do %>-->
-              <!--</li>-->
 
             <% end %>
 
@@ -140,6 +139,8 @@
 
     </header>
 
+    <%= flash[:notice] %>
+
     <%= yield %>
 
     <!--% if Rails.env.development? %>-->
@@ -148,6 +149,11 @@
     <!--  %= "customer:#{current_customer.inspect}" %>-->
     <!--% end %>-->
     <!--デバックツールとして有用-->
+    <footer class="footer shadow-lg p-3 bg-body rounded">
+      <div class="container text-center">
+      <p class="font-size">フォント出典元：「しろくまは冬眠したい」</p>
+      </div>
+    </footer>
 
   </body>
 </html>

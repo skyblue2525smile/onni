@@ -41,8 +41,8 @@
 
     <table>
       <tr>
-        <td><%= f.label :post_code, "郵便番号(ハイフンなし)" %></td>
-        <td><%= f.text_field :post_code, :placeholder => "1234567"%></td>
+        <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+        <td><%= f.text_field :postal_code, :placeholder => "1234567"%></td>
       </tr>
 
       <tr>
@@ -51,8 +51,8 @@
       </tr>
 
       <tr>
-        <td><%= f.label :mailling_label, "宛名" %></td>
-        <td><%= f.text_field :mailling_label, :placeholder => "山田花子" %></td>
+        <td><%= f.label :name, "宛名" %></td>
+        <td><%= f.text_field :name, :placeholder => "山田花子" %></td>
       </tr>
                 <!--    <= f.hidden_field :post_code, :value => address.post_code %>-->
                 <!--    <= f.hidden_field :address, :value => address.address %>-->

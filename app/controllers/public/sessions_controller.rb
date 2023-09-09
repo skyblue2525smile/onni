@@ -13,8 +13,10 @@ class Public::SessionsController < Devise::SessionsController
    #ログアウトさせる対象(current_admin)が存在しているときにこのメソッドを実行する
 
   def guest_sign_in
-    end_user = EndUser.guest
-    sign_in end_user
+    customer = Customer.guest
+    # 処理1：[Customer.guest]でゲストユーザーの作成を実行し、左辺の[customer]に代入
+    sign_in customer
+    # 処理2：処理1で作成したcustomerのデータでsign_in
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 

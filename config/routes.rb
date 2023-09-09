@@ -10,10 +10,10 @@ Rails.application.routes.draw do
 
     resources :items, only: [:index, :show]
 
-    resources :orders, only: [:new, :index, :show, :create]
     post "/orders/confirm" => "orders#confirm"
     get "/orders/thanks" => "orders#thanks"
-
+    resources :orders, only: [:new, :index, :show, :create]
+    # showのidは文字でも何でも適用されてしまうので、ルーティングの順番に注意！
 
     resources :cart_items, only: [:index, :create, :edit, :update, :destroy] do
       delete 'destroy_all' => "cart_items#destroy_all"
@@ -52,8 +52,9 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  devise_scope :end_user do
-    post 'end_users/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
+  # 権限/コントローラ名/アクション
 
 end

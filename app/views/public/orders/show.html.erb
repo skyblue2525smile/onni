@@ -47,7 +47,7 @@
           <thead>
             <tr>
               <th bgcolor="lemonchiffon">商品合計</th>
-              <td><%= @order.payment_amount.to_s(:delimited) %></td>
+              <td><%= (@order.payment_amount - @order.postage).to_s(:delimited) %></td>
             </tr>
             <tr>
               <th bgcolor="lemonchiffon">配送料</th>
@@ -55,7 +55,7 @@
             </tr>
             <tr>
               <th bgcolor="lemonchiffon"><b>お支払金額</b></th>
-              <td><%= (@order.payment_amount + @order.postage).to_s(:delimited) %></td>
+              <td><%= @order.payment_amount.to_s(:delimited) %></td>
             </tr>
           </thead>
         </tbody>

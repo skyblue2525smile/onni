@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-md-6">
       <table class ="table table-bordered">
-        <thead class="thead-light">
+        <thead>
           <tr>
             <th class="p-2" bgcolor="lemonchiffon">
               商品名
@@ -41,7 +41,7 @@
     <%= form_with model: @order, url: orders_path, method: :post do |f| %>
       <div class="col">
         <table class ="table table-bordered">
-          <thead class="thead-light">
+          <thead>
 
             <tr>
               <th bgcolor="lemonchiffon">送料</th>
@@ -71,26 +71,28 @@
     </div>
 
     <div class="row">
-    <table>
-      <tr>
-        <th class ="p-2" bgcolor="lemonchiffon"><b>
-          お支払方法
-        </b></th>
-        <td><%= @order.method_of_payment_i18n %></td>
-      </tr>
+      <div class="col-md-6">
+        <table class ="table table-bordered">
+          <tr>
+            <th class ="p-2" bgcolor="lemonchiffon"><b>
+              お支払方法
+            </b></th>
+            <td><%= @order.method_of_payment_i18n %></td>
+          </tr>
 
-      <tr>
-        <th class ="p-2" bgcolor="lemonchiffon"><b>
-          お届け先
-        </b></th>
-        <td class ="pt-4">
-            〒<%= @order.postal_code %>
-            <%= @order.address %></br>
-            <%= @order.name %>
-        </td>
-      </tr>
+          <tr>
+            <th class ="p-2" bgcolor="lemonchiffon"><b>
+              お届け先
+            </b></th>
+            <td class ="pt-2">
+                〒<%= @order.postal_code %>
+                <%= @order.address %></br>
+                <%= @order.name %>
+            </td>
+          </tr>
 
-    </table>
+        </table>
+      </div>
     </div>
 
         <%= f.hidden_field :method_of_payment, :value => @order.method_of_payment %>

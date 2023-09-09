@@ -44,6 +44,9 @@
       ※会員登録をされていない方は
       <%= link_to "こちら", new_customer_registration_path %>
       から新規登録をお願いいたします。※
+      </br>
+      ※ゲストログインはこちらからお願いいたします※
+      <%= link_to 'ゲストログイン(閲覧用)', customers_guest_sign_in_path, method: :post %>
     </b></span>
   </div>
 

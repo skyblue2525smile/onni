@@ -15,7 +15,7 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
-    @order.payment_amount =  @order.total_price
+
   end
 
   def confirm
@@ -28,7 +28,7 @@ class Public::OrdersController < ApplicationController
         @address = Address.find(params[:order][:address_id])
         @order.postal_code = @address.postal_code
         @order.address = @address.address
-        @order.name = @address.address_name
+        @order.name = @address.name
     elsif params[:order][:address_option] == "2"
         @address = Address.new
         @address.customer_id = current_customer.id
@@ -77,11 +77,7 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:postage, :method_of_payment, :postal_code, :address, :name, :total_amount)
-  end
-
-  def address_params
-    params.require(:address).permit(:customer_id, :name, :address, :postal_code)
+    params.require(:order).permit(:postage, :method_of_payment, :postal_code, :address, :name, :payment_amount)
   end
 
   def check
