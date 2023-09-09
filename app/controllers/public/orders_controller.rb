@@ -15,7 +15,7 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
-    @order.total_amount =  @order.total_price
+    @order.payment_amount =  @order.total_price
   end
 
   def confirm
@@ -34,12 +34,12 @@ class Public::OrdersController < ApplicationController
         @address.customer_id = current_customer.id
         @address.postal_code = params[:order][:postal_code]
         @address.address = params[:order][:address]
-        @address.address_name = params[:order][:name]
+        @address.name = params[:order][:name]
         # orderのform withでcofirmに送っているparamsのカラムのデータをparams[:order][:orderのカラム名]でとってきている
 
         @address.save
 
-        @order.post_code = @address.postal_code
+        @order.postal_code = @address.postal_code
         @order.address = @address.address
         @order.name = @address.name
         #上記で行っていること；アドレスを新規作成して、それを新規orderの配送先に指定している

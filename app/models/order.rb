@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   def total_price
     total = 0
     order_details.each do |order_detail|
-      total += order_detail.quantity * order_detail.purchase_price
+      total += order_detail.amount * order_detail.purchase_price
       # [+=]をつかうことでeachをまわす毎に左側のtotalに右側の計算結果を足し上げられていく
     end
     return total

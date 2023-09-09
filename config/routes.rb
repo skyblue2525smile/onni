@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     resources :items, only: [:index, :show]
 
-    resource :orders, only: [:new, :index, :show, :create]
+    resources :orders, only: [:new, :index, :show, :create]
     post "/orders/confirm" => "orders#confirm"
     get "/orders/thanks" => "orders#thanks"
 

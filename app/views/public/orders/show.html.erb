@@ -7,7 +7,7 @@
       <h6><b>注文情報</b></h6>
       <table class="table table-bordered">
         <tbody>
-          <thead class="thead-light">
+          <thead>
           <tr>
             <th bgcolor="lemonchiffon">注文日</th>
             <td>
@@ -18,7 +18,7 @@
           <tr>
             <th class="p-3" bgcolor="lemonchiffon">配送先</th>
             <td>
-              〒<%= @order.post_code %></br>
+              〒<%= @order.postal_code %></br>
               <%= @order.address %></br>
               <%= @order.name %>
             </td>
@@ -44,7 +44,7 @@
       <h6><b>お支払内容</b></h6>
       <table class="table table-bordered">
         <tbody>
-          <thead class="thead-light">
+          <thead>
             <tr>
               <th bgcolor="lemonchiffon">商品合計</th>
               <td><%= @order.payment_amount.to_s(:delimited) %></td>
@@ -62,11 +62,12 @@
       </table>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-8">
       <h6><b>注文内容</b></h6>
       <table class="table table-bordered">
-          <thead class="thead-light">
+          <thead>
             <tr>
               <th bgcolor="lemonchiffon">商品</th>
               <th bgcolor="lemonchiffon">単価（税込）</th>
