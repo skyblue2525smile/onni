@@ -7,7 +7,7 @@
       <thead>
         <tr>
           <th class="p-2"><b>購入者</b></th>
-          <td class="p-2"><%= link_to @order.customer.last_name + @order.customer.first_name, admin_customer_orders_path(@order.customer.id) %></td>
+          <td class="p-2"><%= link_to @order.customer.full_name, admin_customer_orders_path(@order.customer.id) %></td>
         </tr>
 
         <tr>
@@ -18,7 +18,7 @@
         <tr>
           <th class="p-2"><b>配送先</b></th>
           <td class="p-2">
-            〒<%= @order.post_code %>
+            〒<%= @order.postal_code %>
             <%= @order.address %></br>
             <%= @order.name %>
           </td>
@@ -60,7 +60,7 @@
             <td class="p-2"><%= order_detail.item.name %></td>
             <td class="p-2"><%= order_detail.item.with_tax_price %></td>
             <td class="p-2"><%= order_detail.amount %></td>
-            <td class="p-2"><%= (order_detail.item.price * 1.1).floor * order_detail.amount %></td>
+            <td class="p-2"><%= (order_detail.item.with_tax_price) * order_detail.amount %></td>
             <td class="p-2">
             <%= form_with model: order_detail, url: admin_customer_order_detail_path(@order.customer,order_detail), method: :patch do |f| %>
               <%= f.select :making_status, OrderDetail.making_statuses_i18n.keys.map { |k| [I18n.t("enums.order_detail.making_status.#{k}"), k] } %>

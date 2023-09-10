@@ -8,6 +8,11 @@ class Customer < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :addresses, dependent: :destroy
 
+  def active_for_authenthication?
+    super && !@customer.is_deleted
+  end
+  # 退会済みのユーザー情報ではログインできないようにするメソッド
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com',last_name: 'guest',first_name: 'guest',
                        last_name_kana: 'guest',first_name_kana: 'guest',postal_code: '0000000',
@@ -21,5 +26,12 @@ class Customer < ApplicationRecord
     end
   end
 
+  def full_name
+    self.last_name + " " + self.first_name
+  end
+
+  def full_name_kana
+    self.last_name_kana + " " + self.first_name_kana
+  end
 
 end

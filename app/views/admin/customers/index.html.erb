@@ -1,6 +1,6 @@
 <div class="container">
   <div class="p-3 text-black">
-        <span class = "bg-light pr-3 pl-3 h5">会員一覧</span>
+    <span class = "bg-light pr-3 pl-3 h5">会員一覧</span>
   </div>
 
   <div class="row">
@@ -19,7 +19,7 @@
 
         <tr>
           <td class="p-3"><%= customer.id %></td>
-          <td class="p-3"><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id)%></td>
+          <td class="p-3"><%= link_to customer.full_name, admin_customer_path(customer.id)%></td>
           <td class="p-3"><%= customer.email %></td>
           <td class="p-3">
             <% if customer.is_deleted %>
