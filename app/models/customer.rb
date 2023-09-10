@@ -8,6 +8,17 @@ class Customer < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :addresses, dependent: :destroy
 
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :kana_last_name, presence: true
+  validates :kana_first_name, presence: true
+  validates :postal_code, presence: true
+  validates :address, presence: true
+  validates :phone_number, presence: true
+  validates :email, uniqueness: true
+  # [uniqueness]はオブジェクトが保存される直前に、属性の値が一意であり
+  # 重複していないことを検証するヘルパー
+
   def active_for_authenthication?
     super && !@customer.is_deleted
   end
