@@ -8,7 +8,9 @@ gem 'rails', '~> 6.1.7', '>= 6.1.7.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 3.11'
+# 本番環境でMySQLを利用する為、pumaのバージョンも変更
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -64,3 +66,20 @@ gem 'enum_help'
 
 gem 'rails-i18n'
 # メッセージ日本語化のために導入
+
+# 本番環境でMySQLを利用する為に導入するGem
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+  # MySQLを利用するために必要なgem
+end
+# データベースの接続設定で「環境変数」を利用する為、環境変数を管理するGem「dotenv-rails」を導入
+# このGemでプロジェクトごとにファイルベースでの環境変数の管理が可能
+
+gem "net-smtp"
+gem "net-pop"
+gem "net-imap"
+
+# ここまでが本番環境でMySQLを利用する為に導入するGem
+# Gemfileのproductionグループに属するものを除いてbundle installを実行
+# オプション[--without production]をつける
