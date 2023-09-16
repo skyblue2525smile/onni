@@ -42,21 +42,23 @@
     <table>
       <tr>
         <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
-        <td><%= f.text_field :postal_code, :placeholder => "1234567"%></td>
+        <td><%= f.text_field :postal_code, {:placeholder => "1234567", minlength: "7"} %></td>
       </tr>
 
       <tr>
         <td><%= f.label :address, "住所" %></td>
-        <td><%= f.text_field :address, :placeholder => "東京都渋谷区代々木", size:60 %></td>
+        <td><%= f.text_field :address, :placeholder => "東京都渋谷区代々木", size:60, required: true %></td>
       </tr>
 
       <tr>
         <td><%= f.label :name, "宛名" %></td>
-        <td><%= f.text_field :name, :placeholder => "山田花子" %></td>
+        <td><%= f.text_field :name, :placeholder => "山田花子", required: true %></td>
       </tr>
-                <!--    <= f.hidden_field :post_code, :value => address.post_code %>-->
-                <!--    <= f.hidden_field :address, :value => address.address %>-->
-                <!--    <= f.hidden_field :mailling_label, :value => address.mailling_label %>-->
+        <!--入力時のバリデーションは、「required: true」をつけると実装可能-->
+        <!--すべて入力しないと次の画面に進めないような仕様になるので便利-->
+        <!--補足：modelに記述したバリデーションは、保存時に発動される-->
+        <!--ラジオボタンで住所の新規登録が選択されたときのみバリデーションが発生するようにしたい-->
+
     </table>
   </div>
 

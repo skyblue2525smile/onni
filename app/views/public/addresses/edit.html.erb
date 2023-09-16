@@ -6,20 +6,36 @@
   <%= form_with model: @address, url: address_path, method: :patch do |f| %>
     <table>
       <div class="col-md-10">
-          <thead>
-              <tr>
-                <th class ="pr-3 pb-3">郵便番号(ハイフンなし)</th>
-                <td class="pb-3"><%= f.text_field :postal_code %></td>
-              </tr>
-              <tr>
-                <th class ="pr-3 pb-3">住所</th>
-                <td class="pb-3"><%= f.text_field :address, size:60 %></td>
-              </tr>
-              <tr>
-                  <th class ="pr-3 pb-3">宛名</th>
-                  <td class="pb-3"><%= f.text_field :name %></td>
-              </tr>
-          </thead>
+        <thead>
+          <tr>
+            <th class ="pr-3 pb-3">
+              郵便番号</br>
+              (ハイフンなし)
+            </th>
+
+            <td class="pb-3">
+              <%= f.text_field :postal_code, {:placeholder => "1234567", minlength: "7"} %>
+            </td>
+          </tr>
+
+          <tr>
+            <th class ="pr-3 pb-3">
+              住所
+            </th>
+            <td class="pb-3">
+              <%= f.text_field :address, :placeholder => "東京都渋谷区代々木", size:60, required: true %>
+            </td>
+          </tr>
+
+          <tr>
+            <th class ="pr-3 pb-3">
+              宛名
+            </th>
+            <td class="pb-3">
+              <%= f.text_field :name, :placeholder => "山田花子", required: true %>
+            </td>
+          </tr>
+        </thead>
       </div>
     </table>
 

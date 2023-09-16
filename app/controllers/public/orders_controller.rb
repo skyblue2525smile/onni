@@ -62,6 +62,9 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
+    #TODO: [!]をつけるとバリデーションエラーが発生している場合、エラー内容が画面上に表示されるようになる
+    # [!]はデバック：エラーが発生した時に発生要因を調査するときに使う
+    # [save! create! update!]でのみ「！」は使用可能
     current_customer.cart_items.each do |cart_item|
       @ordered_item = OrderDetail.new
       @ordered_item.order_id = @order.id

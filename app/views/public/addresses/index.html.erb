@@ -5,29 +5,45 @@
   </div>
   <div class="row">
 
-　<%= form_with model: @address, url: addresses_path, method: :post do |f| %>
+  <%= form_with model: @address, url: addresses_path, method: :post do |f| %>
     <table>
       <div class="col-md-10">
-          <thead>
-              <tr>
-                <th class ="pr-3 pb-3">郵便番号(ハイフンなし)</th>
-                <td class="pb-3"><%= f.text_field :postal_code, :placeholder => "1234567" %></td>
-              </tr>
-              <tr>
-                <th class ="pr-3 pb-3">住所</th>
-                <td class="pb-3"><%= f.text_field :address, :placeholder => "東京都渋谷区代々木", size:60 %></td>
-              </tr>
-              <tr>
-                  <th class ="pr-3 pb-3">宛名</th>
-                  <td class="pb-3"><%= f.text_field :name, :placeholder => "山田花子" %></td>
-              </tr>
-          </thead>
+        <thead>
+          <tr>
+            <th class ="pr-3 pb-3">
+              郵便番号</br>
+              (ハイフンなし)
+            </th>
+
+            <td class="pb-3">
+              <%= f.text_field :postal_code, {:placeholder => "1234567", minlength: "7"} %>
+            </td>
+          </tr>
+
+          <tr>
+            <th class ="pr-3 pb-3">
+              住所
+            </th>
+            <td class="pb-3">
+              <%= f.text_field :address, :placeholder => "東京都渋谷区代々木", size:60, required: true %>
+            </td>
+          </tr>
+
+          <tr>
+            <th class ="pr-3 pb-3">
+              宛名
+            </th>
+            <td class="pb-3">
+              <%= f.text_field :name, :placeholder => "山田花子", required: true %>
+            </td>
+          </tr>
+        </thead>
       </div>
     </table>
 
-      <div class ="text-center m-2">
-          <%= f.submit "新規登録", class: "btn btn btn-success" %>
-      </div>
+    <div class ="text-center m-2">
+      <%= f.submit "新規登録", class: "btn btn btn-success" %>
+    </div>
 
  <% end %>
  </div>
@@ -35,12 +51,12 @@
  <div class="row">
    <table class="table table-bordered m-2">
 
-    <thead class="thead-light">
+    <thead>
       <tr>
-        <th class="p-2">郵便番号</th>
-        <th class="p-2">住所</th>
-        <th class="p-2">宛名</th>
-        <th colspan="4"></th>
+        <th bgcolor="lemonchiffon">郵便番号</th>
+        <th bgcolor="lemonchiffon">住所</th>
+        <th bgcolor="lemonchiffon">宛名</th>
+        <th bgcolor="lemonchiffon"></th>
       </tr>
     </thead>
 

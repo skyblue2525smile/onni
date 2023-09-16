@@ -7,6 +7,7 @@ class Address < ApplicationRecord
   # [numericality]は属性に数値のみが使われていることを検証するヘルパー
   validates :name, presence: true
   validates :address, presence: true
+  # 補足：modelに記述したバリデーションは、保存時に発動される
 
   def address_display
     '〒' + postal_code + ' ' + address + ' ' + name
