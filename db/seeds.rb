@@ -28,6 +28,9 @@ puts "seedの実行を開始"
 yamada = Customer.find_or_create_by!(email: "yamada@example.com") do |customer|
   customer.password = "aaaaaaa"
   customer.password_confirmation = "aaaaaaa"
+  # パスワードに関しては、has_secure_passwordメソッドを実装している
+  # メソッドの内容;モデルに暗号化したパスワードを保存し、認証する
+  # この2行を記述することで、passwordのバリデーションは発生しなくなる
   customer.last_name = "山田"
   customer.first_name = "花子"
   customer.last_name_kana = "ヤマダ"
