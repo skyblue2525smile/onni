@@ -14,7 +14,7 @@ class Customer < ApplicationRecord
   validates :first_name_kana, presence: true
   validates :postal_code, presence: true
   validates :address, presence: true
-  validates :phone_number, presence: true
+  validates :telephone_number, presence: true
   validates :email, uniqueness: true
   # [uniqueness]はオブジェクトが保存される直前に、属性の値が一意であり
   # 重複していないことを検証するヘルパー
