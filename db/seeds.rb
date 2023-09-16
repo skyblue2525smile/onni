@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Admin.create!(
-  email: "a@a",## 任意のメールアドレス
-  password: "aaaaaa"## 任意のパスワード
-)
+# Admin.create!(
+#   email: "a@a",## 任意のメールアドレス
+#   password: "aaaaaa"## 任意のパスワード
+# )
 
 #  作成するテストデータ（本番環境で使用）：ユーザー情報、商品情報、配送先、ジャンル
 
@@ -25,38 +25,38 @@ Admin.create!(
 puts "seedの実行を開始"
 
 # ユーザー情報の新規登録
-# yamada = Customer.find_or_create_by!(email: "yamada@example.com") do |customer|
-#   customer.encrypted_password = "password"
-#   customer.last_name = "山田"
-#   customer.first_name = "花子"
-#   customer.last_name_kana = "ヤマダ"
-#   customer.first_name_kana = "ハナコ"
-#   customer.postal_code = "0000000"
-#   customer.address = "東京都渋谷区渋谷0-0-000"
-#   customer.telephone_number = "00000000000"
-# end
+yamada = Customer.find_or_create_by!(email: "yamada@example.com") do |customer|
+  customer.encrypted_password = "password"
+  customer.last_name = "山田"
+  customer.first_name = "花子"
+  customer.last_name_kana = "ヤマダ"
+  customer.first_name_kana = "ハナコ"
+  customer.postal_code = "0000000"
+  customer.address = "東京都渋谷区渋谷0-0-000"
+  customer.telephone_number = "00000000000"
+end
 
-# kumamoto = Customer.find_or_create_by!(email: "kumamoto@example.com") do |customer|
-#   customer.encrypted_password = "password"
-#   customer.last_name = "熊本"
-#   customer.first_name = "大樹"
-#   customer.last_name_kana = "クマモト"
-#   customer.first_name_kana = "ダイキ"
-#   customer.postal_code = "0000000"
-#   customer.address = "奈良県奈良市0-0-000"
-#   customer.telephone_number = "00000000000"
-# end
+kumamoto = Customer.find_or_create_by!(email: "kumamoto@example.com") do |customer|
+  customer.encrypted_password = "password"
+  customer.last_name = "熊本"
+  customer.first_name = "大樹"
+  customer.last_name_kana = "クマモト"
+  customer.first_name_kana = "ダイキ"
+  customer.postal_code = "0000000"
+  customer.address = "奈良県奈良市0-0-000"
+  customer.telephone_number = "00000000000"
+end
 
-# handa = Customer.find_or_create_by!(email: "handa@example.com") do |customer|
-#   customer.encrypted_password = "password"
-#   customer.last_name = "半田"
-#   customer.first_name = "清子"
-#   customer.last_name_kana = "ハンダ"
-#   customer.first_name_kana = "キヨコ"
-#   customer.postal_code = "0000000"
-#   customer.address = "福井県福井市0-0-000"
-#   customer.telephone_number = "00000000000"
-# end
+handa = Customer.find_or_create_by!(email: "handa@example.com") do |customer|
+  customer.encrypted_password = "password"
+  customer.last_name = "半田"
+  customer.first_name = "清子"
+  customer.last_name_kana = "ハンダ"
+  customer.first_name_kana = "キヨコ"
+  customer.postal_code = "0000000"
+  customer.address = "福井県福井市0-0-000"
+  customer.telephone_number = "00000000000"
+end
 
 #商品の新規登録
 Item.find_or_create_by!(name: "ガラスのイヤリング") do |item|
