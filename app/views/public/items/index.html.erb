@@ -6,6 +6,8 @@
 
   <p id="alert"><%= alert %></p>
 
+  <%= paginate @items %>
+
   <div class="row">
     <% @items.each do |item| %>
 
@@ -23,8 +25,6 @@
 
     <% end %>
   </div>
-
-  <%= paginate @items %>
 
 </div>
 

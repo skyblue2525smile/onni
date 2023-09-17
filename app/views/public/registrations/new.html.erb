@@ -42,7 +42,7 @@
                 郵便番号(ハイフンなし)
               </th>
               <td class="pl-4 pb-3">
-                <%= f.text_field :postal_code %>
+                <%= f.text_field :postal_code, minlength: "7" %>
               </td>
             </tr>
 
@@ -74,7 +74,7 @@
                 パスワード(6文字以上)
               </th>
               <td class="pl-4 pb-3">
-                <%= f.password_field :password, autocomplete: "new-password" %>
+                <%= f.password_field :password, autocomplete: "new-password", minlength: "6" %>
               </td>
             </tr>
 
@@ -83,7 +83,7 @@
                 パスワード(確認用)
               </th>
               <td class="pl-4 pb-3">
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", minlength: "6" %>
               </td>
             </tr>
 

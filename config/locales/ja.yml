@@ -23,8 +23,17 @@ ja:
         name: "商品名"
         introduction: "商品紹介文"
         price: "商品の税抜価格"
-      user:
-        name: aaa
+      customer:
+        customer: "お客様情報"
+        email: "メールアドレス"
+        password: "パスワード"
+        last_name: "苗字"
+        first_name: "名前"
+        last_name_kana: "苗字(カナ)"
+        first_name_kana: "名前(カナ)"
+        postal_code: "郵便番号"
+        address: "住所"
+        telephone_number: "電話番号"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
