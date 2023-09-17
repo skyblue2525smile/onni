@@ -17,6 +17,14 @@ ja:
         in_production: "製作中"
         production_complete: "製作完了"
   activerecord:
+    attributes:
+      item:
+        image: "商品画像"
+        name: "商品名"
+        introduction: "商品紹介文"
+        price: "商品の税抜価格"
+      user:
+        name: aaa
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

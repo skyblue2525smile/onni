@@ -141,7 +141,9 @@
 
     <%= flash[:notice] %>
 
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
 
     <!--% if Rails.env.development? %>-->
     <!--  %= debug params %><br>-->
@@ -150,7 +152,7 @@
     <!--% end %>-->
     <!--デバックツールとして有用-->
 
-    <footer class="footer shadow-lg p-3 bg-body rounded">
+    <footer class="shadow-lg p-3 bg-body rounded">
       <div class="container text-center">
         <p class="font-size">フォント出典元：「しろくまは冬眠したい」</p>
       </div>

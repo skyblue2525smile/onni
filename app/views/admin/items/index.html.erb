@@ -1,19 +1,17 @@
 <div class = "container">
   <div class="row">
     <div class="col-md-6">
-      <div class = "m-5 text-black">
-        <span class = "bg-light pr-3 pl-3 h5">商品一覧</span>
+      <div class = "m-4 text-black">
+        <span class = "bg-light pr-3 pl-3 h4">商品一覧</span>
       </div>
     </div>
 
-
     <div class="col-md-6">
-      <div class= "text-right m-5">
+      <div class= "text-right m-4">
          <%= link_to "商品を追加する", new_admin_item_path, class: "btn lightgreenbotton" %>
       </div>
     </div>
   </div>
-
 
   <div class="row">
 
@@ -54,8 +52,7 @@
 
         </tbody>
       </table>
-
+    <%= paginate @items %>
   </div>
-  <%= paginate @items %>
 
 </div>

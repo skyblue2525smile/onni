@@ -8,14 +8,16 @@
 }
 /*javascript側の記述ファイルに寄せている*/
 
-footer{
-    position: absolute;/*←絶対位置*/
-    bottom: 0; /*下に固定*/
-    width:100%;
+.font-size{
+  font-size:7px;
 }
 
-.font-size{
-  font-size:5px;
+.about{
+  margin-top:200px;
+}
+
+.confirm{
+  margin-top:200px;
 }
 
 .thanks{
@@ -24,8 +26,17 @@ footer{
 
 body{
   font-family:"sirokuma";
+  display: flex;
+  flex-direction: column;
+ 	min-height: 100vh;
 }
-/*適用させたい箇所のタグに入れれば、その中の全てのフォントが変更される*/
+
+main {
+  flex: 1;
+}
+
+/*display:flexを使用(最近のcssは[display]か[grit]が主流)*/
+/*[absolute]は極力使わない方がいい*/
 
 .lightgreenbotton{
   background-color: lightgreen;

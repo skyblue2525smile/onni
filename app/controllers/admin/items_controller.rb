@@ -12,8 +12,9 @@ class Admin::ItemsController < ApplicationController
     if @item.save
       redirect_to admin_item_path(@item.id)
     else
-      @items = Item.page(params[:page])
-      render :index
+      render :new
+      # 注：[create]に失敗したら[new]ページを再表示して、登録をやり直せるようにする
+      # newのviewでエラーメッセージを表示させる
     end
   end
 

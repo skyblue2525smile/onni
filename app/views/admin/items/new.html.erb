@@ -5,56 +5,63 @@
     </span>
   </div>
 
+  <% if @item.errors.present? %>
+    <% @item.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  <% end %>
+  <!--商品登録に関するエラーメッセージが表示されるように設定-->
+
   <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
     <div class="d-flex justify-content-center m-3">
       <table>
-        <tbody>
 
-          <tr>
-            <th class="pr-4 pb-2">
-              商品画像
-            </th>
-            <td class="pr-4 pb-2">
-              <%= f.file_field :image, accept: "image/*" %>
-            </td>
-          </tr>
+        <tr>
+          <th class="pr-4 pb-2">
+            <%= f.label :image %>
+          </th>
+          <td class="pr-4 pb-2">
+            <%= f.file_field :image, accept: "image/*" %>
+          </td>
+        </tr>
 
-          <tr>
-            <th class="pr-4 pb-2">
-              商品名
-            </th>
-            <td class="pr-4 pb-2">
-              <%= f.text_field :name, autofocus: true, :placeholder => "商品名" %>
-            </td>
-          </tr>
+        <tr>
+          <th class="pr-4 pb-2">
+            <%= f.label :name %>
+          </th>
+          <td class="pr-4 pb-2">
+            <%= f.text_field :name, autofocus: true, :placeholder => "商品名" %>
+          </td>
+        </tr>
 
-          <tr>
-            <th class="pr-4 pb-2">
-              商品説明
-            </th>
-            <td class="pr-4 pb-2">
-              <%= f.text_area :introduction, rows:3, autofocus: true, id:"inputIntroduction", :placeholder => "ここに説明文を記述します" %>
-            </td>
-          </tr>
+        <tr>
+          <th class="pr-4 pb-2">
+            <%= f.label :introduction %>
+          </th>
+          <td class="pr-4 pb-2">
+            <%= f.text_area :introduction, rows:3, autofocus: true, id:"inputIntroduction", :placeholder => "ここに説明文を記述します" %>
+          </td>
+        </tr>
 
-          <tr>
-            <th class="pr-4 pb-2">税抜価格</th>
-            <td class="pr-4 pb-2">
-              <%= f.text_field :price, autofocus: true %>円
-            </td>
-          </tr>
+        <tr>
+          <th class="pr-4 pb-2">
+            <%= f.label :price %>
+          </th>
+          <td class="pr-4 pb-2">
+            <%= f.text_field :price, autofocus: true %>円
+          </td>
+        </tr>
 
-          <tr>
-            <th class="pr-4 pb-2">販売ステータス</th>
-            <td class="pr-4 pb-2">
-                <%= f.radio_button :is_active, "true" %>
-                <%= f.label :item_status, "販売中" %>
-                <%= f.radio_button :is_active, "false" %>
-                <%= f.label :item_status, "販売停止中" %>
-            </td>
-          </tr>
+        <tr>
+          <th class="pr-4 pb-2">販売ステータス</th>
+          <td class="pr-4 pb-2">
+              <%= f.radio_button :is_active, "true" %>
+              <%= f.label :item_status, "販売中" %>
+              <%= f.radio_button :is_active, "false" %>
+              <%= f.label :item_status, "販売停止中" %>
+          </td>
+        </tr>
 
-        </tbody>
       </table>
     </div>
 
