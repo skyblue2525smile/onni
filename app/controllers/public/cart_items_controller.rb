@@ -38,7 +38,10 @@ class Public::CartItemsController < ApplicationController
       #初めて対象商品をカートに追加する場合
       else
         cart_item_new = CartItem.new(cart_item_params)
-        cart_item_new.save
+        unless cart_item_new.save
+          return redirect_to item_path(cart_item_params[:item_id]), alert: cart_item_new.errors.full_messages.first
+          # 商品個数がnilであった場合、画面表示はカート画面のまま、alertが発動する
+        end
       end
        redirect_to cart_items_path
   end

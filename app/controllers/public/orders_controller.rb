@@ -75,7 +75,7 @@ class Public::OrdersController < ApplicationController
     end
 
     current_customer.cart_items.destroy_all
-    redirect_to orders_thanks_path
+    redirect_to thanks_orders_path
   end
 
   private

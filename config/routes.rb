@@ -1,32 +1,35 @@
 Rails.application.routes.draw do
-
-
   scope module: :public do
     #「scope module」を使用することで、呼び出すコントローラのアクションのみグループ化
 
     root to: 'homes#top'
-    get "/homes/about" => "homes#about", as: "about"
-    get "/homes/introduction" => "homes#introduction", as: "introduction"
+    resource :homes, only: [] do
+      get :about
+      get :introduction
+    end
 
-    resources :items, only: [:index, :show]
+    resources :items, only: %i(index show)
 
-    post "/orders/confirm" => "orders#confirm"
-    get "/orders/thanks" => "orders#thanks"
-    resources :orders, only: [:new, :index, :show, :create]
-    # showのidは文字でも何でも適用されてしまうので、ルーティングの順番に注意！
+    resources :orders, only: [:new, :index, :show, :create] do
+      collection do
+        post :confirm
+        get :thanks
+      end
+    end
 
     resources :cart_items, only: [:index, :create, :edit, :update, :destroy] do
-      delete 'destroy_all' => "cart_items#destroy_all"
+      collection do
+        delete :destroy_all
+      end
     end
 
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
 
-    get "/customer/my_page" => "customers#show"
-    get "/customer/edit/information" => "customers#edit"
-    # 「customers/edit」にするとdeviseのルーティングと被るため、「information」を付け加えている
-    patch "/customer/information" => "customers#update"
-    get "/customer/confirm" => "customers#confirm"
-    patch "/customer/:id/withdrawal" => "customers#withdrawal"
+    resource :customer, only: [] do
+      get :my_page
+      get :confirm
+      patch :withdrawal
+    end
   end
 
   # 顧客用

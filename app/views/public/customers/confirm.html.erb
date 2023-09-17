@@ -9,9 +9,9 @@
   </h3>
 
   <div class="text-center pt-4">
-    <%= link_to "退会しない", customer_edit_information_path, class: "btn btn btn-primary" %>
+    <%= link_to "退会しない", edit_customer_registration_path, class: "btn btn btn-primary" %>
     &emsp;
-    <%= link_to "退会する",  customer_confirm_path, method: :patch, data: { confirm: "本当に退会してもよろしいですか？"},
+    <%= link_to "退会する",  withdrawal_customer_path, method: :patch, data: { confirm: "本当に退会してもよろしいですか？"},
         class: "btn btn btn-danger" %>
   </div>
 </div>

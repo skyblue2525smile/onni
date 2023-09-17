@@ -9,19 +9,25 @@
 /*javascript側の記述ファイルに寄せている*/
 
 .font-size{
-  font-size:7px;
+  font-size: 10px;
 }
 
 .about{
-  margin-top:200px;
+  margin-top: 200px;
 }
 
 .confirm{
-  margin-top:200px;
+  margin-top: 200px;
 }
 
 .thanks{
-  margin-top:200px;
+  margin-top: 200px;
+}
+
+.welcome_message{
+  bottom: 45%;
+  left: 5%;
+  font-size: 25px;
 }
 
 body{
@@ -44,3 +50,23 @@ main {
   color: white;
   /*background-colorで背景色を指定 borderで枠線関連を指定 colorで文字の色を指定*/
 }
+
+// .shop_image{
+//     width:600px;
+//     height:auto;
+//     position: relative;
+// }
+// .container img{
+//     width:100%;
+//     height:auto;
+// }
+// p{
+//     position: absolute;
+//     top:50%;
+//     left:50%;
+//     transform: translate(-50%,-50%);
+//     padding:0;
+//     margin:0;
+//     font-size:30px;
+//     color: white;
+// }

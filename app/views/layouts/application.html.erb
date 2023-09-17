@@ -56,14 +56,14 @@
 
             <% elsif customer_signed_in? %>
               <li class="nav-item">
-                <%= link_to introduction_path, class: 'nav-link text-dark border border-dark rounded m-2' do %>
+                <%= link_to introduction_homes_path, class: 'nav-link text-dark border border-dark rounded m-2' do %>
                   作家紹介
                   <i class="far fa-id-card"></i>
                 <% end %>
               </li>
 
               <li class="nav-item">
-                <%= link_to customer_my_page_path, class: 'nav-link text-dark border border-dark rounded m-2' do %>
+                <%= link_to my_page_customer_path, class: 'nav-link text-dark border border-dark rounded m-2' do %>
                   マイページ
                   <i class="fas fa-user"></i>
                 <% end %>
@@ -94,14 +94,14 @@
 
             <% else %>
               <li class="nav-item">
-                <%= link_to about_path, class: 'nav-link text-dark border border-dark rounded m-2' do %>
+                <%= link_to about_homes_path, class: 'nav-link text-dark border border-dark rounded m-2' do %>
                   Onniについて
                   <i class="fas fa-store-alt"></i>
                 <% end %>
               </li>
 
               <li class="nav-item">
-                <%= link_to introduction_path, class: 'nav-link text-dark border border-dark rounded m-2' do %>
+                <%= link_to introduction_homes_path, class: 'nav-link text-dark border border-dark rounded m-2' do %>
                   作家紹介
                   <i class="far fa-id-card"></i>
                 <% end %>
@@ -140,6 +140,7 @@
     </header>
 
     <%= flash[:notice] %>
+    <%= flash[:alert] %>
 
     <main>
       <%= yield %>
