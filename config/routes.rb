@@ -37,6 +37,7 @@ Rails.application.routes.draw do
       # 注意！ 今回、[show]アクションを[my_page]に書き換えているので、view名も[my_page]にする
       # 豆知識 もし同じレイアウトのviewを複数のアクションで使用する場合は、[render :対象のview名]にする
       # 注意！ [withdrawal]は[id]が不要！
+      # 注意！ [edit/update]はdviseに同じルーティングのものがあるため、dviseのものを使っている
     end
   end
 
@@ -66,6 +67,6 @@ Rails.application.routes.draw do
   devise_scope :customer do
     post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
-  # 権限/コントローラ名/アクション
+  # 権限/コントローラ名/アクション　ゲストログイン機能の実装
 
 end

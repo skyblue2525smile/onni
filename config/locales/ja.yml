@@ -34,6 +34,8 @@ ja:
         postal_code: "郵便番号"
         address: "住所"
         telephone_number: "電話番号"
+      cart_item:
+        amount: "商品個数"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
