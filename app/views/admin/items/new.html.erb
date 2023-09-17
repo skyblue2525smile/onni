@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-    <h5>商品新規登録</h5>
+    <span class="p-3 h4">
+      商品新規登録
+    </span>
   </div>
 
   <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
@@ -56,8 +58,8 @@
       </table>
     </div>
 
-    <div class="d-flex justify-content-center m-3">
-      <%= f.submit "新規登録", class: "btn btn-success" %>
+    <div class="d-flex justify-content-center p-3">
+      <%= f.submit "新規登録", class: "btn btn-success btn-block w-25" %>
     </div>
 
   <% end %>

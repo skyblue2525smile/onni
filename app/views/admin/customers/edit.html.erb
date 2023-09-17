@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row">
     <div class = "p-3 text-black">
-      <span class = "bg-light pr-3 pl-3 h5"><%= @customer.last_name + @customer.first_name %>さんの会員詳細</span>
+      <span class = "bg-light pr-3 pl-3 h4">
+        <%= @customer.full_name %>さんの会員情報編集
+      </span>
     </div>
   </div>
 
 
   <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
   <div class="row">
-    <div class="col-md-8">
-
       <table class="m-3">
         <thead>
 
@@ -72,11 +72,10 @@
         </thead>
       </table>
 
-    </div>
   </div>
 
     <div class="pl-5">
-      <%= f.submit "変更を保存", class: "btn btn btn-success" %>
+      <%= f.submit "変更を保存", class: "btn btn btn-success btn-block w-25" %>
     </div>
 
   <% end %>
