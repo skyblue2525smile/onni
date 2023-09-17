@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       get :about
       get :introduction
     end
+      # [id]が必要な時は、[resources]でまとめる
+      # [id]が不要な時は、[resource]でまとめる
 
     resources :items, only: %i(index show)
 
@@ -15,11 +17,14 @@ Rails.application.routes.draw do
         post :confirm
         get :thanks
       end
+      # [id]が必要な時は、[member]で囲む
+      # [id]が不要な時は、[collection]で囲む
     end
 
     resources :cart_items, only: [:index, :create, :edit, :update, :destroy] do
       collection do
         delete :destroy_all
+        # 注意！ [destroy_all]は[id]が不要！
       end
     end
 
@@ -29,6 +34,9 @@ Rails.application.routes.draw do
       get :my_page
       get :confirm
       patch :withdrawal
+      # 注意！ 今回、[show]アクションを[my_page]に書き換えているので、view名も[my_page]にする
+      # 豆知識 もし同じレイアウトのviewを複数のアクションで使用する場合は、[render :対象のview名]にする
+      # 注意！ [withdrawal]は[id]が不要！
     end
   end
 
